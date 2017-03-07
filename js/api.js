@@ -72,6 +72,9 @@
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 58110fc... api library: added Transaction logging class
     /**
      * [Transaction class to handle logging of all the Transactions]
      * deposits are marked by 'a' type and withdraws are marked by 'w'
@@ -104,8 +107,11 @@
       return this.logs;
     } // getLogs returning the logs
 
+<<<<<<< HEAD
 =======
 >>>>>>> a37c6d8... api library: added ATM class
+=======
+>>>>>>> 58110fc... api library: added Transaction logging class
 
     /**
      * [ATM handling all the functionalities]
@@ -113,10 +119,14 @@
     function ATM(){
       this._super.call(this);
 <<<<<<< HEAD
+<<<<<<< HEAD
       this.transactions = new Transaction();
       this.maxWithdrawAmount=10000;
 =======
 >>>>>>> a37c6d8... api library: added ATM class
+=======
+      this.transactions = new Transaction();
+>>>>>>> 58110fc... api library: added Transaction logging class
     }
     ATM.prototype = Object.create(Base.prototype);
     ATM.prototype.constructor = ATM;
@@ -189,9 +199,13 @@
           this.totalAmount._500 += amount._500;
           this.totalAmount._100 += amount._100;
 <<<<<<< HEAD
+<<<<<<< HEAD
           this.transactions.addLog(this.totalAmount, amount['total'], "add");
 =======
 >>>>>>> a37c6d8... api library: added ATM class
+=======
+          this.transactions.addLog(this.totalAmount, amount['total'], "add");
+>>>>>>> 58110fc... api library: added Transaction logging class
         } else{
           this.error("data discripency while adding amount");
         }
@@ -227,9 +241,13 @@
         this.totalAmount._500 -= _5kn;
         this.totalAmount._100 -= _1kn;
 <<<<<<< HEAD
+<<<<<<< HEAD
         this.transactions.addLog(this.totalAmount, amount, "withdraw");
 =======
 >>>>>>> a37c6d8... api library: added ATM class
+=======
+        this.transactions.addLog(this.totalAmount, amount, "withdraw");
+>>>>>>> 58110fc... api library: added Transaction logging class
       }
     }
     atm = new ATM();
@@ -250,7 +268,13 @@
 
 =======
     atm.withdrawAmount(2600);
+<<<<<<< HEAD
 >>>>>>> a37c6d8... api library: added ATM class
+=======
+    console.log(atm.transactions.getLogs());
+
+
+>>>>>>> 58110fc... api library: added Transaction logging class
 
 
 })()
