@@ -1,15 +1,14 @@
-
 var temp_transaction;
 function withdrawal() {
     var amount = document.getElementById("withdraw").value;
-    var status=verify(amount);
-    if(status=="verified"){
-         document.getElementById("logs").innerHTML += "<tr class='withdraw'><td>"+ amount+"</td><td>"
-                +amountAvailable.twothousand_rs_note+"</td><td>"+amountAvailable.fivehundred_rs_note+"</td><td>"
-                +amountAvailable.hundred_rs_note+"</td><td>"+ amountAvailable.left  +"</td></tr>";
+    var status = verify(amount);
+    if (status == "verified") {
+        document.getElementById("logs").innerHTML += "<tr class='withdraw'><td>" + amount + "</td><td>"
+            + amountAvailable.twothousand_rs_note + "</td><td>" + amountAvailable.fivehundred_rs_note + "</td><td>"
+            + amountAvailable.hundred_rs_note + "</td><td>" + amountAvailable.left + "</td></tr>";
 
 
-    }else{
+    } else {
         alert(status);
     }
 
@@ -18,11 +17,10 @@ function withdrawal() {
 function verify(amount) {
 
 
-
     temp_transaction = new Amount();
     temp_transaction.amount = parseInt(amount);
 
-    if(temp_transaction.amount>max_amount)return "Withdrawal limit Excedded  "+typeof max_amount + " " + typeof temp_transaction.amount;
+    if (temp_transaction.amount > max_amount)return "Withdrawal limit Excedded  " + typeof max_amount + " " + typeof temp_transaction.amount;
 
     if (temp_transaction.amount > amountAvailable.amount) {
         return "Insufficiant Balance";
@@ -52,18 +50,18 @@ function verify(amount) {
         }
     }
 
-    temp_transaction.amount=amount;
-    amountAvailable.amount-=amount;
-    amountAvailable.fivehundred_rs_note-=temp_transaction.fivehundred_rs_note;
-    amountAvailable.hundred_rs_note-=temp_transaction.hundred_rs_note;
-    amountAvailable.twothousand_rs_note-=temp_transaction.twothousand_rs_note;
-    amountAvailable.left=amountAvailable.amount;
-    document.getElementById("statCurrentAmount").innerHTML="Current Amount: "  + amountAvailable.amount;
+    temp_transaction.amount = amount;
+    amountAvailable.amount -= amount;
+    amountAvailable.fivehundred_rs_note -= temp_transaction.fivehundred_rs_note;
+    amountAvailable.hundred_rs_note -= temp_transaction.hundred_rs_note;
+    amountAvailable.twothousand_rs_note -= temp_transaction.twothousand_rs_note;
+    amountAvailable.left = amountAvailable.amount;
+    document.getElementById("statCurrentAmount").innerHTML = "Current Amount: " + amountAvailable.amount;
     return "verified";
 }
 
 
-function checkNotes( temp_transaction) {
+function checkNotes(temp_transaction) {
     if (amountAvailable.fivehundred_rs_note < temp_transaction.fivehundred_rs_note) {
         temp_transaction.hundred_rs_note += 5 * (temp_transaction.fivehundred_rs_note - amountAvailable.fivehundred_rs_note);
     }
