@@ -4,6 +4,5 @@ function Amount() {
         this.hundred_rs_note = 0;
         this.fivehundred_rs_note = 0;
         this.twothousand_rs_note = 0;
-        this.Color_ofwithdraw = true;
         this.left=0;
 }

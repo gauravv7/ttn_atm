@@ -5,6 +5,7 @@
     <script type="text/javascript" src="js/AddAmount.js"></script>
     <script type="text/javascript" src="js/enterAmount.js"></script>
     <script type="text/javascript" src="js/Singleton.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
     <title>ATM</title>
     <link rel="stylesheet" href="css/index.css" type="text/css">
@@ -74,8 +75,14 @@
                                <input type="text" id="hundred" placeholder="Number of 100.RsNotes">
                            </td>
                        </tr>
+                       <tr>
+                           <td>Maximum Amount</td>
+                           <td>
+                               <input type="text" id="max_amount" placeholder="ENTER MAXIMUM AMOUNT">
+                           </td>
+                       </tr>
                    </table>
-                   <button type="submit" onclick="addAmount()">Submit</button>
+                   <button type="submit" onclick="addAmount()" >Submit</button>
                </div>
            </div>
 

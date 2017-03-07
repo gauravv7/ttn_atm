@@ -4,15 +4,11 @@ function withdrawal() {
     var amount = document.getElementById("withdraw").value;
     var status=verify(amount);
     if(status=="verified"){
-        transaction.push(temp_transaction);
-        document.getElementById("logs").innerHTML="<tr><th>Amount</th><th>2000</th><th>500 </th> <th>100 </th> <th>Left"+
-            "</th></tr>";
-        for(var k in transaction){
-            document.getElementById("logs").innerHTML += "<tr><td>"+ transaction[k].amount+"</td><td>"
-                +transaction[k].twothousand_rs_note+"</td><td>"+transaction[k].fivehundred_rs_note+"</td><td>"
-                +transaction[k].hundred_rs_note+"</td><td>"+ transaction[k].left  +"</td></tr>";
+         document.getElementById("logs").innerHTML += "<tr class='withdraw'><td>"+ amount+"</td><td>"
+                +amountAvailable.twothousand_rs_note+"</td><td>"+amountAvailable.fivehundred_rs_note+"</td><td>"
+                +amountAvailable.hundred_rs_note+"</td><td>"+ amountAvailable.left  +"</td></tr>";
 
-        }
+
     }else{
         alert(status);
     }
@@ -20,8 +16,13 @@ function withdrawal() {
 }
 
 function verify(amount) {
+
+
+
     temp_transaction = new Amount();
-    temp_transaction.amount = amount;
+    temp_transaction.amount = parseInt(amount);
+
+    if(temp_transaction.amount>max_amount)return "Withdrawal limit Excedded  "+typeof max_amount + " " + typeof temp_transaction.amount;
 
     if (temp_transaction.amount > amountAvailable.amount) {
         return "Insufficiant Balance";
@@ -56,7 +57,7 @@ function verify(amount) {
     amountAvailable.fivehundred_rs_note-=temp_transaction.fivehundred_rs_note;
     amountAvailable.hundred_rs_note-=temp_transaction.hundred_rs_note;
     amountAvailable.twothousand_rs_note-=temp_transaction.twothousand_rs_note;
-    temp_transaction.left=amountAvailable.amount;
+    amountAvailable.left=amountAvailable.amount;
     document.getElementById("statCurrentAmount").innerHTML="Current Amount: "  + amountAvailable.amount;
     return "verified";
 }
