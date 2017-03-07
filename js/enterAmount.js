@@ -1,16 +1,27 @@
 
+var temp_transaction;
 function withdrawal() {
     var amount = document.getElementById("withdraw").value;
     var status=verify(amount);
+    if(status=="verified"){
+        transaction.push(temp_transaction);
+        document.getElementById("logs").innerHTML="<tr><th>Amount</th><th>2000</th><th>500 </th> <th>100 </th> <th>Left"+
+            "</th></tr>";
+        for(var k in transaction){
+            document.getElementById("logs").innerHTML += "<tr><td>"+ transaction[k].amount+"</td><td>"
+                +transaction[k].twothousand_rs_note+"</td><td>"+transaction[k].fivehundred_rs_note+"</td><td>"
+                +transaction[k].hundred_rs_note+"</td><td>"+ transaction[k].left  +"</td></tr>";
 
+        }
+    }else{
+        alert(status);
+    }
 
 }
 
 function verify(amount) {
-    var x = amountAvailable;
-    var temp_transaction = new Amount();
+    temp_transaction = new Amount();
     temp_transaction.amount = amount;
-
 
     if (temp_transaction.amount > amountAvailable.amount) {
         return "Insufficiant Balance";
@@ -20,7 +31,6 @@ function verify(amount) {
             return "Enter Input in Multiple of 100";
         }
 
-        var cur_amount = temp_transaction.amount;
         temp_transaction.twothousand_rs_note = Math.trunc(temp_transaction.amount / 2000);
         temp_transaction.amount -= temp_transaction.twothousand_rs_note * 2000;
         temp_transaction.fivehundred_rs_note = Math.trunc(temp_transaction.amount / 500);
@@ -41,7 +51,13 @@ function verify(amount) {
         }
     }
 
-
+    temp_transaction.amount=amount;
+    amountAvailable.amount-=amount;
+    amountAvailable.fivehundred_rs_note-=temp_transaction.fivehundred_rs_note;
+    amountAvailable.hundred_rs_note-=temp_transaction.hundred_rs_note;
+    amountAvailable.twothousand_rs_note-=temp_transaction.twothousand_rs_note;
+    temp_transaction.left=amountAvailable.amount;
+    document.getElementById("statCurrentAmount").innerHTML="Current Amount: "  + amountAvailable.amount;
     return "verified";
 }
 

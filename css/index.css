@@ -48,3 +48,7 @@ th {
 td {
     color: navy;
 }
+#statCurrentAmount {
+    font-size: 30px;
+    color:purple;
+}
