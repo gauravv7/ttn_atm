@@ -14,7 +14,7 @@
 
 
                <div id="statTable1">
-                   <table border="solid">
+                   <table border="solid" id="logs">
                    <tr>
                        <th>
                            Amount
@@ -32,17 +32,10 @@
                            Left
                        </th>
                    </tr>
-                   <tr>
-                       <td>0</td>
-                       <td>0</td>
-                       <td>0</td>
-                       <td>0</td>
-                       <td>0</td>
-                   </tr>
                </table>
                </div>
                <div id="statCurrentAmount">
-                   Current Amoount: 000
+                   Current Amount: 000
                </div>
                <div id="statTable2">
                    <table width=30%>
@@ -59,21 +52,21 @@
                        <tr>
                            <td>2000</td>
                            <td>
-                               <input type="text" name="txt1" placeholder="Number of 2000.RsNotes">
+                               <input type="text" id="twoThousand" placeholder="Number of 2000.RsNotes">
                            </td>
                        </tr>
 
                        <tr>
                            <td>500</td>
                            <td>
-                               <input type="text" name="txt2" placeholder="Number of 500.RsNotes">
+                               <input type="text" id="fiveHundred" placeholder="Number of 500.RsNotes">
                            </td>
                        </tr>
 
                        <tr>
                            <td>100</td>
                            <td>
-                               <input type="text" name="txt3" placeholder="Number of 100.RsNotes">
+                               <input type="text" id="hundred" placeholder="Number of 100.RsNotes">
                            </td>
                        </tr>
                    </table>
@@ -87,7 +80,7 @@
                    <table>
                        <tr>
                            <td>Enter Your Amount here: </td>
-                           <td> <input type="text" ></td>
+                           <td> <input type="text" id="withdraw"></td>
                        </tr>
                    </table>
                    <button type="submit"> Withdraw</button>
