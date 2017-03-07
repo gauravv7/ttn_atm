@@ -3,29 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <title>ATM</title>
+    <link rel="stylesheet" href="css/index.css" type="text/css">
 </head>
 <body>
-   <table border="1px">
-       <tr>
-           <th>Stats</th>
-           <th>Customer</th>
-       </tr>
-       <tr>
-           <td>Stats</td>
-           <td>
-               <div>
+<div id="container">
+    <div id="stats">
+
+        <h3>Stats</h3>
+
+
+
+               <div id="statTable1">
+                   <table border="solid">
+                   <tr>
+                       <th>
+                           Amount
+                       </th>
+                       <th>
+                           2000
+                       </th>
+                       <th>
+                           500
+                      </th>
+                       <th>
+                           100
+                      </th>
+                       <th>
+                           Left
+                       </th>
+                   </tr>
+                   <tr>
+                       <td>0</td>
+                       <td>0</td>
+                       <td>0</td>
+                       <td>0</td>
+                       <td>0</td>
+                   </tr>
+               </table>
+               </div>
+               <div id="statCurrentAmount">
+                   Current Amoount: 000
+               </div>
+               <div id="statTable2">
+                   <table width=30%>
+
+                       <tr>
+                           <th colspan="2">Fill ATM</th>
+                       </tr>
+
+                       <tr>
+                           <th>Notes</th>
+                           <th>Quantity</th>
+                       </tr>
+
+                       <tr>
+                           <td>2000</td>
+                           <td>
+                               <input type="text" name="txt1" placeholder="Number of 2000.RsNotes">
+                           </td>
+                       </tr>
+
+                       <tr>
+                           <td>500</td>
+                           <td>
+                               <input type="text" name="txt2" placeholder="Number of 500.RsNotes">
+                           </td>
+                       </tr>
+
+                       <tr>
+                           <td>100</td>
+                           <td>
+                               <input type="text" name="txt3" placeholder="Number of 100.RsNotes">
+                           </td>
+                       </tr>
+                   </table>
+                   <button type="submit">Submit</button>
+               </div>
+           </div>
+
+         <div id="customer">
+             <h3>Customer</h3>
+               <div id="customerTable">
                    <table>
                        <tr>
                            <td>Enter Your Amount here: </td>
                            <td> <input type="text" ></td>
                        </tr>
                    </table>
-
                    <button type="submit"> Withdraw</button>
-
                </div>
            </td>
        </tr>
-   </table>
+         </div>
+</div>
 </body>
 </html>
