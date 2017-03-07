@@ -71,10 +71,6 @@
       console.log(this.msg+str);
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 58110fc... api library: added Transaction logging class
     /**
      * [Transaction class to handle logging of all the Transactions]
      * deposits are marked by 'a' type and withdraws are marked by 'w'
@@ -107,38 +103,19 @@
       return this.logs;
     } // getLogs returning the logs
 
-<<<<<<< HEAD
-=======
->>>>>>> a37c6d8... api library: added ATM class
-=======
->>>>>>> 58110fc... api library: added Transaction logging class
 
     /**
      * [ATM handling all the functionalities]
      */
     function ATM(){
       this._super.call(this);
-<<<<<<< HEAD
-<<<<<<< HEAD
       this.transactions = new Transaction();
       this.maxWithdrawAmount=10000;
-<<<<<<< HEAD
-=======
->>>>>>> a37c6d8... api library: added ATM class
-=======
-      this.transactions = new Transaction();
->>>>>>> 58110fc... api library: added Transaction logging class
-=======
->>>>>>> 02cd6e8... api library: added functionality for max withdraw limit
     }
     ATM.prototype = Object.create(Base.prototype);
     ATM.prototype.constructor = ATM;
     ATM.prototype._super = Base;  // setting the super for proper init
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 02cd6e8... api library: added functionality for max withdraw limit
     // maxWithdrawAmount setter
     ATM.prototype.setMaxWithdrawAmount = function(amount){
       if(isNaN(amount) || !parseInt(amount)) {
@@ -152,11 +129,6 @@
       return this.maxWithdrawAmount;
     }
 
-<<<<<<< HEAD
-=======
->>>>>>> a37c6d8... api library: added ATM class
-=======
->>>>>>> 02cd6e8... api library: added functionality for max withdraw limit
     /**
      * [totalAmount singleton object to handle amount value]
      */
@@ -207,14 +179,7 @@
           this.totalAmount._2000 += amount._2000;
           this.totalAmount._500 += amount._500;
           this.totalAmount._100 += amount._100;
-<<<<<<< HEAD
-<<<<<<< HEAD
           this.transactions.addLog(this.totalAmount, amount['total'], "add");
-=======
->>>>>>> a37c6d8... api library: added ATM class
-=======
-          this.transactions.addLog(this.totalAmount, amount['total'], "add");
->>>>>>> 58110fc... api library: added Transaction logging class
         } else{
           this.error("data discripency while adding amount");
         }
@@ -223,46 +188,30 @@
 
     ATM.prototype.withdrawAmount = function(amount){
       if(!isInt(amount) || (amount%100!=0) ){
-        this.error("not a good value(in fractions)");
+        this.error("Input is not in multiple of 100");
       }
       var sum = amount;
-<<<<<<< HEAD
-<<<<<<< HEAD
       if(this.getMaxWithdrawAmount()<amount){
-        this.error("entered amount exceeds maxWithdrawAmount")
+        this.error("requested amount exceeds maxWithdrawAmount")
       }
-=======
->>>>>>> a37c6d8... api library: added ATM class
-=======
-      if(this.getMaxWithdrawAmount()<amount){
-        this.error("entered amount exceeds maxWithdrawAmount")
-      }
->>>>>>> 02cd6e8... api library: added functionality for max withdraw limit
       if(this.totalAmount.total()<amount){
-        // throw error
+        this.error("ATM does not have sufficient money.");
       }
       var _2kn = Math.floor(sum/2000); sum = sum%2000;
       var _5kn = Math.floor(sum/500); sum = sum%500;
       var _1kn = Math.floor(sum/100); sum = sum%100;
+      this.log("withdraw check: 2000 notes: "+_2kn);
+      this.log("withdraw check: 500 notes: "+_5kn);
+      this.log("withdraw check: 100 notes: "+_1kn);
       if(_1kn!=0){
-        // throw error; even the 100 notes are not
+        this.error("ATM does not have #of notes required to complete the transaction");
       }
-      console.log(_2kn);
-      console.log(_5kn);
-      console.log(_1kn);
-      // redundant check below in accordance to line 109; withdrawing the amount from bank(totalAmount property)
+      // redundant check below in accordance to this.totalAmount.total()<amount; withdrawing the amount from bank(totalAmount property)
       if(_2kn <= this.totalAmount._2000 && _5kn <= this.totalAmount._500 && _1kn <= this.totalAmount._100){
         this.totalAmount._2000 -= _2kn;
         this.totalAmount._500 -= _5kn;
         this.totalAmount._100 -= _1kn;
-<<<<<<< HEAD
-<<<<<<< HEAD
         this.transactions.addLog(this.totalAmount, amount, "withdraw");
-=======
->>>>>>> a37c6d8... api library: added ATM class
-=======
-        this.transactions.addLog(this.totalAmount, amount, "withdraw");
->>>>>>> 58110fc... api library: added Transaction logging class
       }
     }
     atm = new ATM();
@@ -276,24 +225,11 @@
     });
     console.log(atm.totalAmount.total());
     console.log(atm.totalAmount);
-<<<<<<< HEAD
-<<<<<<< HEAD
+    atm.setMaxWithdrawAmount(13000);
     atm.withdrawAmount(12600);
     console.log(atm.transactions.getLogs());
 
 
-=======
-    atm.withdrawAmount(2600);
-<<<<<<< HEAD
->>>>>>> a37c6d8... api library: added ATM class
-=======
-=======
-    atm.withdrawAmount(12600);
->>>>>>> 02cd6e8... api library: added functionality for max withdraw limit
-    console.log(atm.transactions.getLogs());
-
-
->>>>>>> 58110fc... api library: added Transaction logging class
 
 
 })()
