@@ -76,7 +76,7 @@
      * deposits are marked by 'a' type and withdraws are marked by 'w'
      */
     function Transaction(){
-      this._super.call(this);
+      this._super.call(this, "Transaction: ");
       this.logs = new Array();
     }
     Transaction.prototype = Object.create(Base.prototype);
@@ -108,7 +108,7 @@
      * [ATM handling all the functionalities]
      */
     function ATM(){
-      this._super.call(this);
+      this._super.call(this, "ATM: ");
       this.transactions = new Transaction();
       this.maxWithdrawAmount=10000;
     }
@@ -158,6 +158,7 @@
     ATM.prototype.addAmount = function(amount) {
         if(!amount || !Object.keys(amount).length){
           this.error("empty object passed");
+          return;
         }
         var sum = 0;
         for (var key in amount) {
@@ -216,7 +217,7 @@
     }
     atm = new ATM();
     console.log(atm.totalAmount);
-
+    atm.addAmount();
     atm.addAmount({
       _2000: 1,
       _500: 1,
