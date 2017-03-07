@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script type="text/javascript" src="js/enterAmount.js"></script>
+    <script type="text/javascript" src="js/Singleton.js"></script>
+    <script type="text/javascript" src="js/AddAmount.js"></script>
     <title>ATM</title>
     <link rel="stylesheet" href="css/index.css" type="text/css">
 </head>
@@ -70,7 +73,7 @@
                            </td>
                        </tr>
                    </table>
-                   <button type="submit">Submit</button>
+                   <button type="submit" onclick="addAmount()">Submit</button>
                </div>
            </div>
 
@@ -83,7 +86,7 @@
                            <td> <input type="text" id="withdraw"></td>
                        </tr>
                    </table>
-                   <button type="submit"> Withdraw</button>
+                   <button type="submit" onclick="withdrawal()"> Withdraw</button>
                </div>
            </td>
        </tr>
