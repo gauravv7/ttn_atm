@@ -1,9 +1,9 @@
 function Amount() {
 
-        this.amount = 10000;
-        this.hundred_rs_note = 3;
-        this.fivehundred_rs_note = 6;
-        this.twothousand_rs_note = 10;
+        this.amount = 0;
+        this.hundred_rs_note = 0;
+        this.fivehundred_rs_note = 0;
+        this.twothousand_rs_note = 0;
         this.Color_ofwithdraw = true;
 
 }

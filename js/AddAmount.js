@@ -14,4 +14,5 @@ function  addAmount() {
     amountAvailable.fivehundred_rs_note=five_hundred;
     amountAvailable.twothousand_rs_note=two_thousand;
 
+
 }
