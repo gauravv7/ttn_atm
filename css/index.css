@@ -3,8 +3,7 @@
     font-size: 22px;
 }
 #stats {
-    max-width: 50%;
-
+    width: 50%;
     float: left;
     border: solid;
     border-color: darkorange;
@@ -16,7 +15,7 @@
     border-color: darkorange;
     padding: 10px;
     margin: 10px;
-    max-width: 50%;
+    width: 40%;
     display: inline-block;
 }
 div {
@@ -47,6 +46,8 @@ th {
 }
 td {
     color: navy;
+    text-align: center;
+
 }
 #statCurrentAmount {
     font-size: 30px;
@@ -58,8 +59,6 @@ td {
 .deposit{
     background-color: #4bc970;
 }
-
-#stats{
-    height: 50%;
-    width: 40%;
+#logs {
+    width: 100%;
 }
