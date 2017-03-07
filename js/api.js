@@ -122,17 +122,23 @@
 <<<<<<< HEAD
       this.transactions = new Transaction();
       this.maxWithdrawAmount=10000;
+<<<<<<< HEAD
 =======
 >>>>>>> a37c6d8... api library: added ATM class
 =======
       this.transactions = new Transaction();
 >>>>>>> 58110fc... api library: added Transaction logging class
+=======
+>>>>>>> 02cd6e8... api library: added functionality for max withdraw limit
     }
     ATM.prototype = Object.create(Base.prototype);
     ATM.prototype.constructor = ATM;
     ATM.prototype._super = Base;  // setting the super for proper init
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 02cd6e8... api library: added functionality for max withdraw limit
     // maxWithdrawAmount setter
     ATM.prototype.setMaxWithdrawAmount = function(amount){
       if(isNaN(amount) || !parseInt(amount)) {
@@ -146,8 +152,11 @@
       return this.maxWithdrawAmount;
     }
 
+<<<<<<< HEAD
 =======
 >>>>>>> a37c6d8... api library: added ATM class
+=======
+>>>>>>> 02cd6e8... api library: added functionality for max withdraw limit
     /**
      * [totalAmount singleton object to handle amount value]
      */
@@ -218,11 +227,17 @@
       }
       var sum = amount;
 <<<<<<< HEAD
+<<<<<<< HEAD
       if(this.getMaxWithdrawAmount()<amount){
         this.error("entered amount exceeds maxWithdrawAmount")
       }
 =======
 >>>>>>> a37c6d8... api library: added ATM class
+=======
+      if(this.getMaxWithdrawAmount()<amount){
+        this.error("entered amount exceeds maxWithdrawAmount")
+      }
+>>>>>>> 02cd6e8... api library: added functionality for max withdraw limit
       if(this.totalAmount.total()<amount){
         // throw error
       }
@@ -262,6 +277,7 @@
     console.log(atm.totalAmount.total());
     console.log(atm.totalAmount);
 <<<<<<< HEAD
+<<<<<<< HEAD
     atm.withdrawAmount(12600);
     console.log(atm.transactions.getLogs());
 
@@ -271,6 +287,9 @@
 <<<<<<< HEAD
 >>>>>>> a37c6d8... api library: added ATM class
 =======
+=======
+    atm.withdrawAmount(12600);
+>>>>>>> 02cd6e8... api library: added functionality for max withdraw limit
     console.log(atm.transactions.getLogs());
 
 
