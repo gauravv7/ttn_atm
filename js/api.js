@@ -163,14 +163,13 @@
     ATM.prototype.addAmount = function(amount) {
         if(!amount || !Object.keys(amount).length){
           return this.error("empty object passed");
-          return;
         }
         var sum = 0;
         for (var key in amount) {
           if (amount.hasOwnProperty(key)) {
             if(isFloat(amount[key])) {
               return this.error("given domination("+key+") value is in fractions("+amount[key]+")");
-              throw new Error("given domination("+key+") value is in fractions("+amount[key]+")");
+              // throw new Error("given domination("+key+") value is in fractions("+amount[key]+")");
             }
             if(key.endsWith("total")) continue;
             // below error to be expanded later for proper logging
