@@ -9,12 +9,16 @@ function withdrawal() {
 
 
     } else {
-        alert(status);
+        $("#message").text(status);
     }
 
 }
 
 function verify(amount) {
+
+
+    var pattern=/^\d+$/;
+    if(!pattern.test(amount))return "Enter amount in numbers";
 
     temp_transaction = new Amount();
     temp_transaction.amount = parseInt(amount);
