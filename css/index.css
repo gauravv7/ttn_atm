@@ -5,14 +5,13 @@
 #stats {
     width: 50%;
     float: left;
-    border: solid;
+    border-right: solid;
     border-color: darkorange;
     padding: 10px;
     margin: 10px;
     height: 650px;
 }
 #customer {
-    border: solid;
     border-color: darkorange;
     padding: 10px;
     margin: 10px;
@@ -67,4 +66,15 @@ td {
 }
 #limit {
     color: sienna;
+}
+#message {
+    font-size: 30px;
+    color: firebrick;
+    font-style: italic;
+}
+#ErrorInAddAmount {
+     margin: 10px;
+    font-size: 30px;
+    color: firebrick;
+    font-style: italic;
 }
