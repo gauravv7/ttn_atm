@@ -9,6 +9,7 @@
     border-color: darkorange;
     padding: 10px;
     margin: 10px;
+    height: 550px;
 }
 #customer {
     border: solid;
@@ -26,8 +27,7 @@ button {
     background-color: #4bc970;
     color: #FFF;
     border-radius: 5px;
-    font-size: 17px;
-
+    font-size: 25px;
 }
 #statTable2 {
     font-size: 25px;
@@ -61,4 +61,10 @@ td {
 }
 #logs {
     width: 100%;
+}
+#button {
+    text-align: center;
+}
+#limit {
+    color: sienna;
 }
