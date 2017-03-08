@@ -16,8 +16,6 @@ function withdrawal() {
 
 function verify(amount) {
 
-
-
     temp_transaction = new Amount();
     temp_transaction.amount = parseInt(amount);
 
