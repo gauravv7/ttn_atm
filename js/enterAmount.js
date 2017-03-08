@@ -26,7 +26,7 @@ function verify(amount) {
         return "Insufficiant Balance";
     } else {
 
-        if (!(temp_transaction.amount % 100)) {
+        if ((temp_transaction.amount % 100)!=0) {
             return "Enter Amount in Multiple of 100";
         }
 

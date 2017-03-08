@@ -5,9 +5,19 @@
 var amountAvailable;
 var max_amount = 0;
 
+
+
+function validateEnteredAmount(hundred,five_hundred,two_thousand) {
+    if(hundred==0 && five_hundred==0 && two_thousand==0){
+        return false;
+    }
+    return true;
+}
+
 function addAmount() {
+
     var regex_string = /^\d+$/;
-    $("#statTable2").hide();
+    
     var hundred = document.getElementById("hundred").value;
     if (!regex_string.test(hundred)) {
         hundred = 0;
@@ -20,28 +30,38 @@ function addAmount() {
     if (!regex_string.test(two_thousand)) {
         two_thousand = 0;
     }
-    amountAvailable = new Amount();
+    
+    
+    if(validateEnteredAmount(hundred,five_hundred,two_thousand)) {
+        $("#statTable2").hide();
 
-    max_amount = document.getElementById("max_amount").value;
 
-    document.getElementById("limit").innerHTML = "Maximum withdrawal limit : " + max_amount;
+        amountAvailable = new Amount();
 
-    if (!regex_string.test(max_amount)) {
-        max_amount = 0;
+        max_amount = document.getElementById("max_amount").value;
+
+        document.getElementById("limit").innerHTML = "Maximum withdrawal limit : " + max_amount;
+
+        if (!regex_string.test(max_amount)) {
+            max_amount = 0;
+        }
+
+        amountAvailable.hundred_rs_note = hundred;
+        amountAvailable.fivehundred_rs_note = five_hundred;
+        amountAvailable.twothousand_rs_note = two_thousand;
+        amountAvailable.left = amountAvailable.amount = hundred * 100 + five_hundred * 500 + two_thousand * 2000;
+        document.getElementById("statCurrentAmount").innerHTML = "Current Amount: " + amountAvailable.amount;
+
+
+        document.getElementById("logs").innerHTML += "<tr class='deposit'><td>" + amountAvailable.amount + "</td><td>"
+            + amountAvailable.twothousand_rs_note + "</td><td>" + amountAvailable.fivehundred_rs_note + "</td><td>"
+            + amountAvailable.hundred_rs_note + "</td><td>" + amountAvailable.left + "</td></tr>";
+
+
+    }else{
+        document.getElementById("ErrorInAddAmount").innerHTML= " INVALID TRANSACTION ";
     }
 
-    amountAvailable.hundred_rs_note = hundred;
-    amountAvailable.fivehundred_rs_note = five_hundred;
-    amountAvailable.twothousand_rs_note = two_thousand;
-    amountAvailable.left = amountAvailable.amount = hundred * 100 + five_hundred * 500 + two_thousand * 2000;
-    amountAvailable.Color_ofwithdraw = false;
-
-    document.getElementById("statCurrentAmount").innerHTML = "Current Amount: " + amountAvailable.amount;
-
-
-    document.getElementById("logs").innerHTML += "<tr class='deposit'><td>" + amountAvailable.amount + "</td><td>"
-        + amountAvailable.twothousand_rs_note + "</td><td>" + amountAvailable.fivehundred_rs_note + "</td><td>"
-        + amountAvailable.hundred_rs_note + "</td><td>" + amountAvailable.left + "</td></tr>";
 
 }
 
