@@ -1,8 +1,20 @@
 var temp_transaction;
+
+function disableButtotn(){
+    var withdraw=document.getElementById("withdraw").value;
+    var withdrawbtn = document.getElementById("withdrawbtn");
+    if(withdraw.length==0) {
+        withdrawbtn.disabled=true;
+    }
+    else {
+        withdrawbtn.disabled=false;
+    }
+}
 function withdrawal() {
     var amount = document.getElementById("withdraw").value;
     var status = verify(amount);
     if (status == "verified") {
+
         document.getElementById("logs").innerHTML += "<tr class='withdraw'><td>" + amount + "</td><td>"
             + amountAvailable.twothousand_rs_note + "</td><td>" + amountAvailable.fivehundred_rs_note + "</td><td>"
             + amountAvailable.hundred_rs_note + "</td><td>" + amountAvailable.fifty_rs_note + "</td><td>"+amountAvailable.left +"</td></tr>";
@@ -15,11 +27,6 @@ function withdrawal() {
 }
 
 function verify(amount) {
-
-
-
-
-
     var pattern=/^\d+$/;
     if(!pattern.test(amount))return "Enter amount in numbers";
 

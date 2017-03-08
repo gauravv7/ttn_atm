@@ -105,10 +105,10 @@
                    <table>
                        <tr>
                            <td>Enter Your Amount here: </td>
-                           <td> <input type="text" id="withdraw"></td>
+                           <td> <input type="text" id="withdraw" onkeyup="disableButtotn()"></td>
                        </tr>
                    </table>
-                   <button type="submit" onclick="withdrawal()" id="withdrawbtn"> Withdraw</button>
+                   <button type="submit" onclick="withdrawal()" id="withdrawbtn" disabled="true"> Withdraw</button>
                    <div id="limit"></div>
                    <div id="message"></div>
                </div>
