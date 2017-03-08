@@ -17,6 +17,9 @@ function withdrawal() {
 function verify(amount) {
 
 
+
+
+
     var pattern=/^\d+$/;
     if(!pattern.test(amount))return "Enter amount in numbers";
 
