@@ -20,14 +20,14 @@ function verify(amount) {
     temp_transaction = new Amount();
     temp_transaction.amount = parseInt(amount);
 
-    if (temp_transaction.amount > max_amount)return "Withdrawal limit Excedded  " + typeof max_amount + " " + typeof temp_transaction.amount;
+    if (temp_transaction.amount > max_amount)return "Withdrawal limit Excedded" ;
 
     if (temp_transaction.amount > amountAvailable.amount) {
         return "Insufficiant Balance";
     } else {
 
-        if ((temp_transaction.amount % 100) != 0) {
-            return "Enter Input in Multiple of 100";
+        if (!(temp_transaction.amount % 100)) {
+            return "Enter Amount in Multiple of 100";
         }
 
         temp_transaction.twothousand_rs_note = Math.trunc(temp_transaction.amount / 2000);
