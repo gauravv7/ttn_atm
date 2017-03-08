@@ -22,7 +22,13 @@ function addAmount() {
     }
     amountAvailable = new Amount();
 
-    max_amount = parseInt(document.getElementById("max_amount").value);
+    max_amount = document.getElementById("max_amount").value;
+
+    document.getElementById("limit").innerHTML = "Maximum withdrawal limit : " + max_amount;
+
+    if (!regex_string.test(max_amount)) {
+        max_amount = 0;
+    }
 
     amountAvailable.hundred_rs_note = hundred;
     amountAvailable.fivehundred_rs_note = five_hundred;
