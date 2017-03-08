@@ -53,22 +53,27 @@
 
     Base.prototype.error = function(str) {
       console.error(this.msg+str);
+      return str;
     }
 
     Base.prototype.debug = function(str) {
       console.debug(this.msg+str);
+      return str;
     }
 
     Base.prototype.info = function(str) {
       console.info(this.msg+str);
+      return str;
     }
 
     Base.prototype.warn = function(str) {
       console.warn(this.msg+str);
+      return str;
     }
 
     Base.prototype.log = function(str) {
       console.log(this.msg+str);
+      return str;
     }
 
     /**
@@ -119,7 +124,7 @@
     // maxWithdrawAmount setter
     ATM.prototype.setMaxWithdrawAmount = function(amount){
       if(isNaN(amount) || !parseInt(amount)) {
-        this.error("Not a valid maxWithdrawAmount");
+        return this.error("Not a valid maxWithdrawAmount");
       }
       this.maxWithdrawAmount = amount;
     }
@@ -157,14 +162,14 @@
 
     ATM.prototype.addAmount = function(amount) {
         if(!amount || !Object.keys(amount).length){
-          this.error("empty object passed");
+          return this.error("empty object passed");
           return;
         }
         var sum = 0;
         for (var key in amount) {
           if (amount.hasOwnProperty(key)) {
             if(isFloat(amount[key])) {
-              this.error("given domination("+key+") value is in fractions("+amount[key]+")");
+              return this.error("given domination("+key+") value is in fractions("+amount[key]+")");
               throw new Error("given domination("+key+") value is in fractions("+amount[key]+")");
             }
             if(key.endsWith("total")) continue;
@@ -182,21 +187,21 @@
           this.totalAmount._100 += amount._100;
           this.transactions.addLog(this.totalAmount, amount['total'], "add");
         } else{
-          this.error("data discripency while adding amount");
+          return this.error("data discripency while adding amount");
         }
     } // addAmount
 
 
     ATM.prototype.withdrawAmount = function(amount){
       if(!isInt(amount) || (amount%100!=0) ){
-        this.error("Input is not in multiple of 100");
+        return this.error("Input is not in multiple of 100");
       }
       var sum = amount;
       if(this.getMaxWithdrawAmount()<amount){
-        this.error("requested amount exceeds maxWithdrawAmount")
+        return this.error("requested amount exceeds maxWithdrawAmount")
       }
       if(this.totalAmount.total()<amount){
-        this.error("ATM does not have sufficient money.");
+        return this.error("ATM does not have sufficient money.");
       }
       var _2kn = Math.floor(sum/2000); sum = sum%2000;
       var _5kn = Math.floor(sum/500); sum = sum%500;
@@ -205,7 +210,7 @@
       this.log("withdraw check: 500 notes: "+_5kn);
       this.log("withdraw check: 100 notes: "+_1kn);
       if(_1kn!=0){
-        this.error("ATM does not have #of notes required to complete the transaction");
+        return this.error("ATM does not have #of notes required to complete the transaction");
       }
       // redundant check below in accordance to this.totalAmount.total()<amount; withdrawing the amount from bank(totalAmount property)
       if(_2kn <= this.totalAmount._2000 && _5kn <= this.totalAmount._500 && _1kn <= this.totalAmount._100){
