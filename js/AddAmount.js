@@ -49,11 +49,6 @@ function addAmount() {
 
 
         document.getElementById("limit").innerHTML = "Maximum withdrawal limit : " + max_amount;
-
-        if (!regex_string.test(max_amount)) {
-            max_amount = 0;
-        }
-
         amountAvailable.hundred_rs_note = hundred;
         amountAvailable.fivehundred_rs_note = five_hundred;
         amountAvailable.twothousand_rs_note = two_thousand;
