@@ -16,6 +16,8 @@ function withdrawal() {
 
 function verify(amount) {
 
+    var pattern=/^\d+$/;
+    if(!pattern.test(amount))return "enter a valid amount";
 
     temp_transaction = new Amount();
     temp_transaction.amount = parseInt(amount);
