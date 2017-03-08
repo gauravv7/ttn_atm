@@ -28,10 +28,9 @@ function verify(amount) {
         return "Insufficiant Balance";
     } else {
 
-        if (!(temp_transaction.amount % 100)) {
-            return "Enter Amount in Multiple of 100";
+        if (!(temp_transaction.amount % 50)) {
+            return "Enter Amount in Multiple of 50";
         }
-
         temp_transaction.twothousand_rs_note = Math.trunc(temp_transaction.amount / 2000);
         temp_transaction.amount -= temp_transaction.twothousand_rs_note * 2000;
         temp_transaction.fivehundred_rs_note = Math.trunc(temp_transaction.amount / 500);
